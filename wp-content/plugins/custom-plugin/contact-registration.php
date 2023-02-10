@@ -31,10 +31,12 @@ defined('ABSPATH') or die('gerara here!');
 
 class ContactReg{
     function __construct(){
+       
+
         $this->pass_data_to_db();   
     }
 
-    function activate(){
+    function activate(){ 
         $this->create_table_to_db();
         flush_rewrite_rules();
     }
@@ -47,14 +49,14 @@ class ContactReg{
     function create_table_to_db(){
         global $wpdb;
 
-        $table_name = $wpdb->prefix.'contacts';
+        $table_name = 'wp_contacts';
        
 
-        $contact_details = "CREATE TABLE ".$table_name."(
-            name text NOT NULL,
-            email text NOT NULL,
-            telephone number NOT NULL,
-            mesage text NOT NULL
+        $contact_details = "CREATE TABLE $table_name(
+            fullname text NOT NULL,
+            email varchar(35) NOT NULL,
+            telephone text NOT NULL,
+            message text NOT NULL
         );";
 
       
@@ -66,13 +68,13 @@ class ContactReg{
     function pass_data_to_db(){
         if (isset($_POST['submitbtn'])){
             $data = array(
-                'name'=>$_POST['name'],
+                'fullname'=>$_POST['fullname'],
                 'email'=>$_POST['email'],
                 'telephone'=>$_POST['telephone'],
                 'message'=>$_POST['message']
             );
             global $wpdb;
-            $tableName= 'ct_form';
+            $tableName= 'wp_contacts';
             $result = $wpdb->insert($tableName, $data, $format=NULL);
         
             if($result == true){
