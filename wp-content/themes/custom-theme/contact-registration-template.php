@@ -11,6 +11,9 @@
             <input type="text" name="name" class="form-control input-sm mb-3" id="name" placeholder="input your full names here" required>
         </div>
         <div class="form-group">
+            <input type="text" name="email" class="form-control input-sm mb-3" id="email" placeholder="input your email here" required>
+        </div>
+        <div class="form-group">
             <input type="number" name="telephone" class="form-control input-sm mb-3" id="telephone" placeholder="input your telephone number here" required>
         </div>
         <div class="form-group">

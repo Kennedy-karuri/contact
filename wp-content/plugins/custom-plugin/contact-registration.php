@@ -25,7 +25,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Securing A plugin
  */
 
-defined('ABSPATH') or die('Hey you hacker, got you!');
+defined('ABSPATH') or die('gerara here!');
 
 
 
@@ -52,6 +52,7 @@ class ContactReg{
 
         $contact_details = "CREATE TABLE ".$table_name."(
             name text NOT NULL,
+            email text NOT NULL,
             telephone number NOT NULL,
             mesage text NOT NULL
         );";
@@ -66,11 +67,12 @@ class ContactReg{
         if (isset($_POST['submitbtn'])){
             $data = array(
                 'name'=>$_POST['name'],
+                'email'=>$_POST['email'],
                 'telephone'=>$_POST['telephone'],
                 'message'=>$_POST['message']
             );
             global $wpdb;
-            $tableName= 'ct_contacts';
+            $tableName= 'ct_form';
             $result = $wpdb->insert($tableName, $data, $format=NULL);
         
             if($result == true){
