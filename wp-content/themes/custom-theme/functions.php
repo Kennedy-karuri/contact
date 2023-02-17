@@ -4,7 +4,7 @@ function custom_scripts_enqueue(){
 
     wp_register_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', array(), 1, 'all');
     wp_enqueue_style('bootstrap');
-
+    
     wp_enqueue_style('customstyle',  get_template_directory_uri().'/css/custom.css', array(), '1.0.0', 'all'); //hooks
 
 
